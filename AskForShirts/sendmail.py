@@ -7,8 +7,6 @@ import re
 EMAIL_ADDRESS = 'email'
 EMAIL_PASSWORD = 'password'
 
-contacts = ['YourAddress@gmail.com', 'test@example.com']
-
 firstname = 'firstname'
 lastname = 'lastname'
 address = 'address'
