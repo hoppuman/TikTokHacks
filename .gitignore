@@ -131,9 +131,9 @@ dmypy.json
 .pyre/
 
 .DS_Store
-.idea/.gitignore
 .idea/TikTokHacks.iml
 .idea/inspectionProfiles/
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+.idea/
