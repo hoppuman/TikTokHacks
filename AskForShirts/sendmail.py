@@ -4,15 +4,15 @@ import imghdr
 from email.message import EmailMessage
 import re
 
-EMAIL_ADDRESS = 'email'
-EMAIL_PASSWORD = 'password'
+EMAIL_ADDRESS =lmon0172@danbury.k12.ct.us
+EMAIL_PASSWORD =2655186478
 
-firstname = 'firstname'
-lastname = 'lastname'
-address = 'address'
-town = 'town'
-zip = 'zip'
-state = 'state'
+firstname =luis
+lastname =monroy
+address =16 dr aaron b samuels blvd 
+town =danbury
+zip =06810
+state =connecticut 
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
 	smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
