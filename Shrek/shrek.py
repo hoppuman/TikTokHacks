@@ -1,12 +1,14 @@
 import time
 import pyautogui
+import sys
 
-def SendScript():
+def SendScript(filename: str):
 	time.sleep(2)
-	with open('script.txt') as f:
+	with open(filename) as f:
 		lines = f.readlines()
 	for line in lines:
 		pyautogui.typewrite(line.strip())
 		pyautogui.press('enter')
 
-SendScript()
+if __name__ == "__main__":
+	SendScript(sys.argv[1])
