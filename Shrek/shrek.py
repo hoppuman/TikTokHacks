@@ -11,4 +11,6 @@ def SendScript(filename: str):
 		pyautogui.press('enter')
 
 if __name__ == "__main__":
+	if(len(sys.argv) < 2):
+		SendScript("script.txt")
 	SendScript(sys.argv[1])
