@@ -1,0 +1,10 @@
+1. You edit Messages.txt to change the message you want to send. Keep the formatting roughly the same and don't edit the [CollegeName] bit.
+That is going to be filled in with the college name. 
+
+2. SEND ONE TO YOURSELF FIRST to make sure it works. You can hit the test button to preview what it will look when when it sends to yourself.
+
+3. If it doesn't send to yourself then you probably need to turn on "less secure apps" here: https://support.google.com/accounts/answer/6010255
+
+4. I am not responsible for all the mail you will get because of this. 
+
+5. LAUNCH is the file that will start the UI of the program.
