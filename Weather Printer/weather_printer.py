@@ -6,6 +6,10 @@ from datetime import datetime
 import os
 import time
 
+# Printer I use this with
+# https://www.amazon.com/gp/product/B07848ZBXT/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
+#
+
 def printTodaysWeather():
     page = requests.get("https://weather.com/weather/today/l/601fac2e226280fb210240806f04cbc36f884bd3197f17e0ecb438b616466486")
     soup=BeautifulSoup(page.content,"html.parser")
