@@ -4,9 +4,9 @@ I just finished my senior year of highschool, I am very smart.
 It would mean the world to me you could send me a shirt so I could represent your university.
 Could you please send to 
 
-{First and Last Name}
-{Address}
-{Town} {City} {Zip}
+{Emily Parnell }
+{104 Ohls street }
+{Patchouge} {New York} {11772}
 
 Thank you,
-{FirstName}
+{Emily}
