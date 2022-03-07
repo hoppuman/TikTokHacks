@@ -1,0 +1,1567 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Solid.Arduino</name>
+    </assembly>
+    <members>
+        <member name="T:Solid.Arduino.EnhancedSerialPort">
+            <summary>
+            Represents a system serial port, supporting .NET and Mono.
+            </summary>
+            <remarks>
+            This class is a workaround for Mono's <see cref="T:System.IO.Ports.SerialPort"/> implementation of event <see cref="M:Solid.Arduino.EnhancedSerialPort.OnDataReceived(System.IO.Ports.SerialDataReceivedEventArgs)"/>.
+            <para>
+            Copyright 2013 Antanas Veiverys <seealso href="https://antanas.veiverys.com">antanas.veiverys.com</seealso>
+            </para>
+            </remarks>
+            <inheritdoc cref="T:System.IO.Ports.SerialPort" />
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.#ctor">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.#ctor"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.#ctor(System.ComponentModel.IContainer)">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.#ctor(System.ComponentModel.IContainer)"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.#ctor(System.String)">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.#ctor(System.String)"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.#ctor(System.String,System.Int32)">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.#ctor(System.String,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.#ctor(System.String,System.Int32,System.IO.Ports.Parity)">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.#ctor(System.String,System.Int32,System.IO.Ports.Parity)"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32)">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialPort.Open">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.Open"/>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.AnalogPinMapping">
+            <summary>
+            Represents a mapping between a MIDI channel and a physical pin number.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.AnalogPinMapping.Channel">
+            <summary>
+            Gets the MIDI channel number (0 - 15).
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.AnalogPinMapping.PinNumber">
+            <summary>
+            Gets the board's pin number (0 - 127).
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.AnalogState">
+            <summary>
+            Represents the analog level read from or set to an analog pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.AnalogState.Channel">
+            <summary>
+            Gets the MIDI channel number (0 - 15).
+            </summary>
+            <remarks>
+            The mapping of analog pins to channel numbers can be retrieved using the <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardAnalogMapping"/> method.
+            </remarks>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.AnalogState.Level">
+            <summary>
+            Gets the analog level.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.BoardCapability">
+            <summary>
+            Represents a summary of pinmode capabilities supported by an Arduino board.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.BoardCapability.Pins">
+            <summary>
+            Gets the capability array of the board's pins.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.BoardAnalogMapping">
+            <summary>
+            Represents a summary of mappings between MIDI channels and physical pin numbers.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.BoardAnalogMapping.PinMappings">
+            <summary>
+            Gets the channel mapping array of the board's analog pins.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.ByteArrayExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:System.Byte"/> arrays.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.ByteArrayExtensions.ConvertBinaryCodedDecimalToString(System.Byte[],System.Boolean)">
+            <summary>
+            Converts a <see cref="T:System.Byte"/> array holding binary coded digits to a readable string.
+            </summary>
+            <param name="data">The binary coded digit bytes</param>
+            <param name="isLittleEndian">Value indicating if the first nibble contains the least significant part</param>
+            <returns>A string containing numeric data</returns>
+            <exception cref="T:System.ArgumentException">The array contains one or more non-BCD bytes.</exception>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.DigitalPortState">
+            <summary>
+            Represents the pin states of a digital port.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.DigitalPortState.Port">
+            <summary>
+            Gets the digital port number.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.DigitalPortState.Pins">
+            <summary>
+            Gets the bit-pattern value of the digital port.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.DigitalPortState.IsSet(System.Int32)">
+            <summary>
+            Gets a value indicating if a pin is set (1 or 'high').
+            </summary>
+            <param name="pin">The 0-based pin number</param>
+            <returns><c>true</c> when the pin has a binary 1 value, otherwise <c>false</c></returns>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.FirmataMessage">
+            <summary>
+            Represents a Firmata message received from an Arduino or Arduino compatible system.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.FirmataMessage.#ctor(Solid.Arduino.Firmata.MessageType)">
+            <summary>
+            Initializes a new <see cref="T:Solid.Arduino.Firmata.FirmataMessage"/> instance.
+            </summary>
+            <param name="type">The type of message to be created.</param>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.FirmataMessage.#ctor(System.ValueType,Solid.Arduino.Firmata.MessageType)">
+            <summary>
+            Initializes a new <see cref="T:Solid.Arduino.Firmata.FirmataMessage"/> instance.
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.FirmataMessage.#ctor(System.ValueType,Solid.Arduino.Firmata.MessageType,System.DateTime)">
+            <summary>
+            Initializes a new <see cref="T:Solid.Arduino.Firmata.FirmataMessage"/> instance.
+            </summary>
+            <param name="value"></param>
+            <param name="type"></param>
+            <param name="time"></param>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.FirmataMessage.Value">
+            <summary>
+            Gets the specific value delivered by the message.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.FirmataMessage.Type">
+            <summary>
+            Gets the type enumeration of the message.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.FirmataMessage.Time">
+            <summary>
+            Gets the time of the delivered message.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.MessageType">
+            <summary>
+            Indicates the type of a Firmata Message.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.FirmataMessageEventArgs">
+            <summary>
+            Event arguments passed to a <see cref="T:Solid.Arduino.Firmata.MessageReceivedHandler"/> type event.
+            </summary>
+            <see cref="T:Solid.Arduino.Firmata.MessageReceivedHandler"/>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.FirmataMessageEventArgs.Value">
+            <summary>
+            Gets the received message.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.FirmataEventArgs`1">
+            <summary>
+            Contains event data for a <see cref="T:Solid.Arduino.Firmata.AnalogStateReceivedHandler"/> and <see cref="T:Solid.Arduino.Firmata.DigitalStateReceivedHandler"/> type events.
+            </summary>
+            <typeparam name="T">Type of the event data</typeparam>
+            <remarks>
+            This class is primarily implemented by the <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.AnalogStateReceived"/> and <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.DigitalStateReceived"/> events.
+            </remarks>
+            <seealso cref="T:Solid.Arduino.Firmata.AnalogStateReceivedHandler"/>
+            <seealso cref="T:Solid.Arduino.Firmata.DigitalStateReceivedHandler"/>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.FirmataEventArgs`1.Value">
+            <summary>
+            Gets the received message.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.Firmware">
+            <summary>
+            Identifies the Arduino board's firmware.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.Firmware.MajorVersion">
+            <summary>
+            Gets the major version number.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.Firmware.MinorVersion">
+            <summary>
+            Gets the minor version number.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.Firmware.Name">
+            <summary>
+            Gets the name of the board's firmware.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.ProtocolVersion">
+            <summary>
+            Represents the Firmata communication protocol version.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.ProtocolVersion.Major">
+            <summary>
+            Gets or sets the major version number.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.ProtocolVersion.Minor">
+            <summary>
+            Gets or sets the minor version number.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.Servo.IServoProtocol">
+            <summary>
+            Defines Servo control related members of the Firmata protocol.
+            </summary>
+            <remarks>
+            This interface is separated from the <see cref="T:Solid.Arduino.Firmata.IFirmataProtocol"/> interface, in order to
+            protect the latter against feature bloat. 
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.Servo.IServoProtocol.ConfigureServo(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Configures the minimum and maximum pulse length for a servo pin.
+            </summary>
+            <param name="pinNumber">The pin number</param>
+            <param name="minPulse">Minimum pulse length</param>
+            <param name="maxPulse">Maximum pulse length</param>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.StringData">
+            <summary>
+            Represents a string exchanged with the Firmata SYSEX STRING_DATA command.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.StringData.Text">
+            <summary>
+            Gets or sets the string.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.MessageReceivedHandler">
+            <summary>
+            Signature of event handlers capable of processing Firmata messages.
+            </summary>
+            <param name="sender">The object raising the event</param>
+            <param name="eventArgs">Event arguments holding a <see cref="T:Solid.Arduino.Firmata.FirmataMessage"/></param>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.AnalogStateReceivedHandler">
+            <summary>
+            Signature of event handlers capable of processing analog I/O messages.
+            </summary>
+            <param name="sender">The object raising the event</param>
+            <param name="eventArgs">Event arguments holding a <see cref="T:Solid.Arduino.Firmata.AnalogState"/></param>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.DigitalStateReceivedHandler">
+            <summary>
+            Signature of event handlers capable of processing digital I/O messages.
+            </summary>
+            <param name="sender">The object raising the event</param>
+            <param name="eventArgs">Event arguments holding a <see cref="T:Solid.Arduino.Firmata.DigitalPortState"/></param>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.PinMode">
+            <summary>
+            The modes a pin can be in or can be set to.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.IFirmataProtocol">
+            <summary>
+            Defines a comprehensive set of members supporting the Firmata Protocol.
+            Currently version 2.3 is supported.
+            </summary>
+            <seealso href="https://github.com/firmata/arduino">Firmata project on GitHub</seealso>
+            <seealso href="https://github.com/firmata/protocol">Firmata protocol details</seealso>
+            <seealso href="http://arduino.cc/en/reference/firmata">Firmata reference for Arduino</seealso>
+        </member>
+        <member name="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived">
+            <summary>
+            Event, raised for every SysEx (0xF0) and ProtocolVersion (0xF9) message not handled by an <see cref="T:Solid.Arduino.Firmata.IFirmataProtocol"/>'s Get method.
+            </summary>
+            <remarks>
+            When e.g. method <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestBoardCapability"/> is invoked, the party system's response message raises this event.
+            However, when method <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardCapability"/> or <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardCapabilityAsync"/> is invoked, the response is returned
+            to the respective method and event <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived"/> is not raised.
+            
+            This event is not raised for either analog or digital I/O messages.
+            </remarks>
+        </member>
+        <member name="E:Solid.Arduino.Firmata.IFirmataProtocol.AnalogStateReceived">
+            <summary>
+            Event, raised when an analog state message (command 0xE0) is received.
+            </summary>
+            <remarks>
+            The frequency at which analog state messages are being sent by the party system can be set with method <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetSamplingInterval(System.Int32)"/>.
+            </remarks>
+        </member>
+        <member name="E:Solid.Arduino.Firmata.IFirmataProtocol.DigitalStateReceived">
+            <summary>
+            Event, raised when a digital I/O message (command 0x90) is received.
+            </summary>
+            <remarks>
+            Please note that the StandardFirmata implementation for Arduino only sends updates of digital port states if necessary.
+            When none of a port's digital input pins have changed state since a previous polling cycle, no Firmata.sendDigitalPort message
+            is sent.
+            <para>
+            Also, calling method <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalReportMode(System.Int32,System.Boolean)"/> does not guarantee this event will receive a (first) Firmata.sendDigitalPort message.
+            Use method <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetPinState(System.Int32)"/> or <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetPinStateAsync(System.Int32)"/> inquiring the current pin states.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateAnalogStateMonitor">
+            <summary>
+            Creates an observable object tracking <see cref="T:Solid.Arduino.Firmata.AnalogState"/> messages.
+            </summary>
+            <returns>An <see cref="T:System.IObservable`1"/> interface</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateAnalogStateMonitor(System.Int32)">
+            <summary>
+            Creates an observable object tracking <see cref="T:Solid.Arduino.Firmata.AnalogState" /> messages for a specific channel.
+            </summary>
+            <param name="channel">The channel to track</param>
+            <returns>
+            An <see cref="T:System.IObservable`1" /> interface
+            </returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateDigitalStateMonitor">
+            <summary>
+            Creates an observable object tracking <see cref="T:Solid.Arduino.Firmata.DigitalPortState"/> messages.
+            </summary>
+            <returns>An <see cref="T:System.IObservable`1"/> interface</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateDigitalStateMonitor(System.Int32)">
+            <summary>
+            Creates an observable object tracking <see cref="T:Solid.Arduino.Firmata.DigitalPortState" /> messages for a specific port.
+            </summary>
+            <param name="port">The port to track</param>
+            <returns>
+            An <see cref="T:System.IObservable`1" /> interface
+            </returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SendStringData(System.String)">
+            <summary>
+            Sends a message string.
+            </summary>
+            <param name="data">The message string</param>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SetAnalogReportMode(System.Int32,System.Boolean)">
+            <summary>
+            Enables or disables analog sampling reporting.
+            </summary>
+            <param name="channel">The channel attached to the analog pin</param>
+            <param name="enable"><c>True</c> if enabled, otherwise <c>false</c></param>
+            <remarks>
+            When enabled, the party system is expected to return analog I/O messages (0xE0)
+            for the given channel. The frequency at which these messages are returned can
+            be controlled by method <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetSamplingInterval(System.Int32)"/>.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPort(System.Int32,System.Int32)">
+            <summary>
+            Sets the digital output pins of a given port LOW or HIGH.
+            </summary>
+            <param name="portNumber">The 0-based port number</param>
+            <param name="pins">Binary value for the port's pins (0 to 7)</param>
+            <remarks>
+            A binary 1 sets the digital output pin HIGH (+5 or +3.3 volts).
+            A binary 0 sets the digital output pin LOW.
+            <para>
+            The Arduino operates with 8-bit ports, so only bits 0 to 7 of the pins parameter are mapped.
+            Higher bits are ignored.
+            </para>
+            <example>
+            For port 0 bit 2 maps to the Arduino Uno's pin 2.
+            For port 1 bit 2 maps to pin 10.
+            
+            The complete mapping of port 1 of the Arduino Uno looks like this:
+            <list type="">
+            <item>bit 0: pin 8</item>
+            <item>bit 1: pin 9</item>
+            <item>bit 2: pin 10</item>
+            <item>bit 3: pin 11</item>
+            <item>bit 4: pin 12</item>
+            <item>bit 5: pin 13</item>
+            <item>bit 6: not mapped</item>
+            <item>bit 7: not mapped</item>
+            </list> 
+            </example>
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalReportMode(System.Int32,System.Boolean)">
+            <summary>
+            Enables or disables digital input pin reporting for the given port.
+            </summary>
+            <param name="portNumber">The number of the port</param>
+            <param name="enable"><c>true</c> if enabled, otherwise <c>false</c></param>
+            <remarks>
+            When enabled, the party system is expected to return digital I/O messages (0x90)
+            for the given port.
+            <para>
+            Note: as for Firmata version 2.3 digital I/O messages are only returned when
+            at least one digital input pin's state has changed from high to low or vice versa.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPinMode(System.Int32,Solid.Arduino.Firmata.PinMode)">
+            <summary>
+            Sets a pin's mode (digital input/digital output/analog/PWM/servo etc.).
+            </summary>
+            <param name="pinNumber">The number of the pin</param>
+            <param name="mode">The pin's mode</param>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SetSamplingInterval(System.Int32)">
+            <summary>
+            Sets the frequency at which analog samples must be reported.
+            </summary>
+            <param name="milliseconds">The sampling interval in milliseconds</param>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPin(System.Int32,System.Int64)">
+            <summary>
+            Sets an analog value on a PWM or Servo enabled analog output pin.
+            </summary>
+            <param name="pinNumber">The pin number.</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPin(System.Int32,System.Boolean)">
+            <summary>
+            Sets a HI or LO value on a digital output pin.
+            </summary>
+            <param name="pinNumber">The pin number</param>
+            <param name="value">The value (<c>false</c> = Low, <c>true</c> = High)</param>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.ResetBoard">
+            <summary>
+            Sends a reset message to the party system.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestProtocolVersion">
+            <summary>
+            Requests the party system to send a protocol version message.
+            </summary>
+            <remarks>
+            The party system is expected to return a single protocol version message (0xF9).
+            This message triggers the <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived"/> event. The protocol version
+            is passed in the <see cref="T:Solid.Arduino.Firmata.FirmataMessageEventArgs"/> in a <see cref="T:Solid.Arduino.Firmata.ProtocolVersion"/> object.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetProtocolVersion">
+            <summary>
+            Gets the protocol version implemented on the party system.
+            </summary>
+            <returns>The implemented protocol version</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetProtocolVersionAsync">
+            <summary>
+            Asynchronously gets the protocol version implemented on the party system.
+            </summary>
+            <returns>The implemented protocol version</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestFirmware">
+            <summary>
+            Requests the party system to send a firmware message.
+            </summary>
+            <remarks>
+            The party system is expected to return a single SYSEX REPORT_FIRMWARE message.
+            This message triggers the <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived"/> event. The firmware signature
+            is passed in the <see cref="T:Solid.Arduino.Firmata.FirmataMessageEventArgs"/> in a <see cref="T:Solid.Arduino.Firmata.Firmware"/> object.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetFirmware">
+            <summary>
+            Gets the firmware signature of the party system.
+            </summary>
+            <returns>The firmware signature</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetFirmwareAsync">
+            <summary>
+            Asynchronously gets the firmware signature of the party system.
+            </summary>
+            <returns>The firmware signature</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestBoardCapability">
+            <summary>
+            Requests the party system to send a summary of its capabilities.
+            </summary>
+            <remarks>
+            The party system is expected to return a single SYSEX CAPABILITY_RESPONSE message.
+            This message triggers the <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived"/> event. The capabilities
+            are passed in the <see cref="T:Solid.Arduino.Firmata.FirmataMessageEventArgs"/> in a <see cref="T:Solid.Arduino.Firmata.BoardCapability"/> object.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardCapability">
+            <summary>
+            Gets a summary of the party system's capabilities.
+            </summary>
+            <returns>The system's capabilities</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardCapabilityAsync">
+            <summary>
+            Asynchronously gets a summary of the party system's capabilities.
+            </summary>
+            <returns>The system's capabilities</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestBoardAnalogMapping">
+            <summary>
+            Requests the party system to send the channel-to-pin mappings of its analog lines.
+            </summary>
+            <remarks>
+            The party system is expected to return a single SYSEX ANALOG_MAPPING_RESPONSE message.
+            This message triggers the <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived"/> event. The analog mappings are
+            passed in the <see cref="T:Solid.Arduino.Firmata.FirmataMessageEventArgs"/> in a <see cref="T:Solid.Arduino.Firmata.BoardAnalogMapping"/> object.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardAnalogMapping">
+            <summary>
+            Gets the channel-to-pin mappings of the party system's analog lines.
+            </summary>
+            <returns>The channel-to-pin mappings</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardAnalogMappingAsync">
+            <summary>
+            Asynchronously gets the channel-to-pin mappings of the party system's analog lines.
+            </summary>
+            <returns>The channel-to-pin mappings</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestPinState(System.Int32)">
+            <summary>
+            Requests the party system to send the state of a given pin.
+            </summary>
+            <param name="pinNumber">The pin number</param>
+            <remarks>
+            The party system is expected to return a single SYSEX PINSTATE_RESPONSE message.
+            This message triggers the <see cref="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived"/> event. The pin state
+            is passed in the <see cref="T:Solid.Arduino.Firmata.FirmataMessageEventArgs"/> in a <see cref="T:Solid.Arduino.Firmata.PinState"/> object.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetPinState(System.Int32)">
+            <summary>
+            Gets a pin's mode (digital input/output, analog etc.) and actual value.
+            </summary>
+            <param name="pinNumber">The pin number</param>
+            <returns>The pin's state</returns>
+        </member>
+        <member name="M:Solid.Arduino.Firmata.IFirmataProtocol.GetPinStateAsync(System.Int32)">
+            <summary>
+            Asynchronously gets a pin's mode (digital input/output, analog etc.) and actual value.
+            </summary>
+            <param name="pinNumber">The pin number</param>
+            <returns>The pin's state</returns>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.PinCapability">
+            <summary>
+            Contains information about the capabilities of a pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.PinNumber">
+            <summary>
+            Gets the 0-based number of the pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.DigitalInput">
+            <summary>
+            Gets a value indicating if the pin can be in digital input mode.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.DigitalOutput">
+            <summary>
+            Gets a value indicating if the pin can be in digital output mode.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.Analog">
+            <summary>
+            Gets a value indicating if it is an analog pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.Pwm">
+            <summary>
+            Gets a value indicating if the pin supports pulse width modulation.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.Servo">
+            <summary>
+            Gets a value indicating if the pin supports servo motor control.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.AnalogResolution">
+            <summary>
+            Gets the bit resolution for analog pins.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.PwmResolution">
+            <summary>
+            Gets the bit resolution for PWM enabled pins.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.ServoResolution">
+            <summary>
+            Gets the bit resolution for servo enabled pins.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.I2C">
+            <summary>
+            Gets a value indicating if it is an I2c pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.OneWire">
+            <summary>
+            Gets a value indicating if it is an OneWire pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.StepperControl">
+            <summary>
+            Gets a value indicating if it is a Stepper Control pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.Encoder">
+            <summary>
+            Gets a value indicating if it is an encoder pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.Serial">
+            <summary>
+            Gets a value indicating if it is a serial pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.InputPullup">
+            <summary>
+            Gets a value indicating if it is an input pullup pin.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinCapability.MaxStepNumber">
+            <summary>
+            Gets the maximum number of steps if it is a Stepper Control pin.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.Firmata.PinState">
+            <summary>
+            Contains information about a pin's state.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinState.PinNumber">
+            <summary>
+            The 0-based pin number
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinState.Mode">
+            <summary>
+            Gets pin's operating mode.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Firmata.PinState.Value">
+            <summary>
+            Gets the value of the pin.
+            </summary>
+            <remarks>
+            For analog pins the value is 0 or a positive number. For digital pins a low is represented by 0 and a high is respresented by 1.
+            </remarks>
+        </member>
+        <member name="T:Solid.Arduino.ArduinoSession">
+             <summary>
+             Represents an active layer for serial communication with an Arduino board.
+             </summary>
+             <remarks>
+             This class supports a few common protocols used for communicating with Arduino boards.
+             The protocols can be used simultaneous and independently of each other.
+             </remarks>
+             <seealso href="http://arduino.cc">Official Arduino website</seealso>
+             <seealso href="https://github.com/SolidSoils/Arduino">SolidSoils4Arduino project on GitHub</seealso>
+             <example>
+             <code language="C#">
+             var connection = new SerialConnection("COM3", SerialBaudRate.Bps_57600);
+             var session = new ArduinoSession(connection, timeOut: 250);
+             // Cast to interface done, just for the sake of this demo.
+             IFirmataProtocol firmata = (IFirmataProtocol)session;
+            
+             Firmware firm = firmata.GetFirmware();
+             Console.WriteLine("Firmware: {0} {1}.{2}", firm.Name, firm.MajorVersion, firm.MinorVersion);
+            
+             ProtocolVersion version = firmata.GetProtocolVersion();
+             Console.WriteLine("Protocol version: {0}.{1}", version.Major, version.Minor);
+            
+             BoardCapability caps = firmata.GetBoardCapability();
+             Console.WriteLine("Board Capabilities:");
+            
+             foreach (var pincap in caps.PinCapabilities)
+             {
+                Console.WriteLine("Pin {0}: Input: {1}, Output: {2}, Analog: {3}, Analog-Res: {4}, PWM: {5}, PWM-Res: {6}, Servo: {7}, Servo-Res: {8}",
+                    pincap.PinNumber,
+                    pincap.DigitalInput,
+                    pincap.DigitalOutput,
+                    pincap.Analog,
+                    pincap.AnalogResolution,
+                    pincap.Pwm,
+                    pincap.PwmResolution,
+                    pincap.Servo,
+                    pincap.ServoResolution);
+             }
+             Console.WriteLine();
+             Console.ReadLine();
+             </code>
+             </example>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.#ctor(Solid.Arduino.ISerialConnection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Solid.Arduino.ArduinoSession"/> class.
+            </summary>
+            <param name="connection">The serial port connection</param>
+            <exception cref="T:System.ArgumentNullException">connection</exception>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.#ctor(Solid.Arduino.ISerialConnection,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Solid.Arduino.ArduinoSession"/> class.
+            </summary>
+            <param name="connection">The serial port connection</param>
+            <param name="timeOut">The response time out in milliseconds</param>
+            <exception cref="T:System.ArgumentNullException">connection</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">timeOut</exception>
+        </member>
+        <member name="P:Solid.Arduino.ArduinoSession.TimeOut">
+            <summary>
+            Gets or sets the number of milliseconds before a time-out occurs when a read operation does not finish.
+            </summary>
+            <remarks>
+            The default is a <see cref="F:System.IO.Ports.SerialPort.InfiniteTimeout"/> value (-1).
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.Clear">
+            <summary>
+            Closes and reopens the underlying connection and clears all buffers and queues.
+            </summary>
+        </member>
+        <member name="E:Solid.Arduino.ArduinoSession.StringReceived">
+            <inheritdoc cref="E:Solid.Arduino.IStringProtocol.StringReceived"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.CreateReceivedStringMonitor">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.CreateReceivedStringMonitor"/>
+        </member>
+        <member name="P:Solid.Arduino.ArduinoSession.NewLine">
+            <inheritdoc cref="P:Solid.Arduino.IStringProtocol.NewLine"/>
+            <remarks>
+            The value of this property is mapped to the <see cref="P:Solid.Arduino.ISerialConnection.NewLine"/> property of the
+            connection the <see cref="T:Solid.Arduino.ArduinoSession"/> instance is relying on.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.Write(System.String)">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.Write(System.String)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.WriteLine(System.String)">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.WriteLine(System.String)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadLine">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.ReadLine"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadLineAsync">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.ReadLineAsync"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.Read(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.Read(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadAsync(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.ReadAsync(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadTo(System.Char)">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.ReadTo(System.Char)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadToAsync(System.Char)">
+            <inheritdoc cref="M:Solid.Arduino.IStringProtocol.ReadToAsync(System.Char)"/>
+        </member>
+        <member name="E:Solid.Arduino.ArduinoSession.MessageReceived">
+            <inheritdoc cref="E:Solid.Arduino.Firmata.IFirmataProtocol.MessageReceived"/>
+        </member>
+        <member name="E:Solid.Arduino.ArduinoSession.AnalogStateReceived">
+            <inheritdoc cref="E:Solid.Arduino.Firmata.IFirmataProtocol.AnalogStateReceived"/>
+        </member>
+        <member name="E:Solid.Arduino.ArduinoSession.DigitalStateReceived">
+            <inheritdoc cref="E:Solid.Arduino.Firmata.IFirmataProtocol.DigitalStateReceived"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.CreateDigitalStateMonitor">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateDigitalStateMonitor"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.CreateDigitalStateMonitor(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateDigitalStateMonitor(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.CreateAnalogStateMonitor">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateAnalogStateMonitor"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.CreateAnalogStateMonitor(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.CreateAnalogStateMonitor(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ResetBoard">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.ResetBoard"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetDigitalPin(System.Int32,System.Int64)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPin(System.Int32,System.Int64)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetDigitalPin(System.Int32,System.Boolean)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPin(System.Int32,System.Boolean)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetAnalogReportMode(System.Int32,System.Boolean)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetAnalogReportMode(System.Int32,System.Boolean)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetDigitalPort(System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPort(System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetDigitalReportMode(System.Int32,System.Boolean)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalReportMode(System.Int32,System.Boolean)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetDigitalPinMode(System.Int32,Solid.Arduino.Firmata.PinMode)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetDigitalPinMode(System.Int32,Solid.Arduino.Firmata.PinMode)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetSamplingInterval(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SetSamplingInterval(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SendStringData(System.String)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.SendStringData(System.String)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.RequestFirmware">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestFirmware"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetFirmware">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetFirmware"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetFirmwareAsync">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetFirmwareAsync"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.RequestProtocolVersion">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestProtocolVersion"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetProtocolVersion">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetProtocolVersion"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetProtocolVersionAsync">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetProtocolVersionAsync"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.RequestBoardCapability">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestBoardCapability"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetBoardCapability">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardCapability"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetBoardCapabilityAsync">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardCapabilityAsync"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.RequestBoardAnalogMapping">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestBoardAnalogMapping"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetBoardAnalogMapping">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardAnalogMapping"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetBoardAnalogMappingAsync">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetBoardAnalogMappingAsync"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.RequestPinState(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.RequestPinState(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetPinState(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetPinState(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetPinStateAsync(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetPinStateAsync(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ConfigureServo(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.Firmata.Servo.IServoProtocol.ConfigureServo(System.Int32,System.Int32,System.Int32)"/>
+        </member>
+        <member name="E:Solid.Arduino.ArduinoSession.I2CReplyReceived">
+            <inheritdoc cref="E:Solid.Arduino.I2C.II2CProtocol.I2CReplyReceived"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.CreateI2CReplyMonitor">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.CreateI2CReplyMonitor"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SetI2CReadInterval(System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.SetI2CReadInterval(System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.WriteI2C(System.Int32,System.Byte[])">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.WriteI2C(System.Int32,System.Byte[])"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadI2COnce(System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.ReadI2COnce(System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetI2CReply(System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReply(System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetI2CReplyAsync(System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReplyAsync(System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadI2COnce(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.ReadI2COnce(System.Int32,System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetI2CReply(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReply(System.Int32,System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.GetI2CReplyAsync(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReplyAsync(System.Int32,System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadI2CContinuous(System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.ReadI2CContinuous(System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.ReadI2CContinuous(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.ReadI2CContinuous(System.Int32,System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.StopI2CReading">
+            <inheritdoc cref="M:Solid.Arduino.I2C.II2CProtocol.StopI2CReading"/>
+            <remarks>
+            <para>
+            Please note:
+            The Firmata specification states that the I2C_READ_STOP message
+            should only stop the specified query. However, the current Firmata.h implementation
+            stops all registered queries.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.ArduinoSession.SerialDataReceived(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            Event handler processing data bytes received on the serial port.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.I2C.I2CEventArgs">
+            <summary>
+            Event arguments passed to a <see cref="T:Solid.Arduino.I2C.I2CReplyReceivedHandler"/> type event.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.I2C.I2CEventArgs.Value">
+            <summary>
+            Gets the I2C message value being received.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.I2C.I2CReply">
+            <summary>
+            Container for an I2C message
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.I2C.I2CReply.Address">
+            <summary>
+            Gets or sets the memory address.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.I2C.I2CReply.Register">
+            <summary>
+            Gets or sets the register number.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.I2C.I2CReply.Data">
+            <summary>
+            Gets or sets the binary data.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.I2C.I2CReplyReceivedHandler">
+            <summary>
+            Signature of event handlers capable of processing I2C_REPLY messages.
+            </summary>
+            <param name="sender">The object raising the event</param>
+            <param name="eventArgs">Event arguments holding an <see cref="T:Solid.Arduino.I2C.I2CReply"/></param>
+        </member>
+        <member name="T:Solid.Arduino.I2C.II2CProtocol">
+            <summary>
+            Defines a comprehensive set of members supporting the I2C Protocol.
+            </summary>
+            <seealso href="http://www.i2c-bus.org/">I2C bus website by telos Systementwicklung GmbH</seealso>
+            <seealso href="http://www.arduino.cc/en/Reference/Wire">Arduino Wire reference</seealso>
+            <seealso href="http://playground.arduino.cc/Main/I2cScanner">I2C Scanner sample sketch for Arduino</seealso>
+        </member>
+        <member name="E:Solid.Arduino.I2C.II2CProtocol.I2CReplyReceived">
+            <summary>
+            Event, raised for every SYSEX I2C message not handled by an <see cref="T:Solid.Arduino.I2C.II2CProtocol"/>'s Get method.
+            </summary>
+            <remarks>
+            When e.g. methods <see cref="M:Solid.Arduino.I2C.II2CProtocol.ReadI2COnce(System.Int32,System.Int32)"/> and <see cref="M:Solid.Arduino.I2C.II2CProtocol.ReadI2CContinuous(System.Int32,System.Int32)"/> are invoked,
+            the party system's response messages raise this event.
+            However, when method <see cref="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReply(System.Int32,System.Int32)"/> or <see cref="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReplyAsync(System.Int32,System.Int32)"/> is invoked,
+            the response received is returned to the method that issued the command and event <see cref="E:Solid.Arduino.I2C.II2CProtocol.I2CReplyReceived"/> is not raised.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.CreateI2CReplyMonitor">
+            <summary>
+            Creates an observable object tracking <see cref="T:Solid.Arduino.I2C.I2CReply"/> messages.
+            </summary>
+            <returns>An <see cref="T:System.IObservable`1"/> interface</returns>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.SetI2CReadInterval(System.Int32)">
+            <summary>
+            Sets the frequency at which data is read in the continuous mode.
+            </summary>
+            <param name="microseconds">The interval, expressed in microseconds</param>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.WriteI2C(System.Int32,System.Byte[])">
+            <summary>
+            Writes an arbitrary array of bytes to the given memory address.
+            </summary>
+            <param name="slaveAddress">The slave's target address</param>
+            <param name="data">The data array</param>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.ReadI2COnce(System.Int32,System.Int32)">
+            <summary>
+            Requests the party system to send bytes read from the given memory address.
+            </summary>
+            <param name="slaveAddress">The slave's memory address</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+            <remarks>
+            The party system is expected to return a single I2C_REPLY message.
+            This message triggers the <see cref="E:Solid.Arduino.I2C.II2CProtocol.I2CReplyReceived"/> event. The data
+            are passed in the <see cref="T:Solid.Arduino.Firmata.FirmataEventArgs`1"/> in an <see cref="T:Solid.Arduino.I2C.I2CReply"/> object.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.ReadI2COnce(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Requests the party system to send bytes read from the given memory address and register.
+            </summary>
+            <param name="slaveAddress">The slave's memory address</param>
+            <param name="slaveRegister">The slave's register</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.ReadI2CContinuous(System.Int32,System.Int32)">
+            <summary>
+            Requests the party system to repeatedly send bytes read from the given memory address.
+            </summary>
+            <param name="slaveAddress">The slave's address</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+            <remarks>
+            The party system is expected to return a continuous stream of I2C_REPLY messages at
+            an interval which can be set using the <see cref="M:Solid.Arduino.I2C.II2CProtocol.SetI2CReadInterval(System.Int32)"/> method.
+            Received I2C_REPLY messages trigger the <see cref="E:Solid.Arduino.I2C.II2CProtocol.I2CReplyReceived"/> event. The data
+            are served in the <see cref="T:Solid.Arduino.I2C.I2CEventArgs"/>'s Value property as an <see cref="T:Solid.Arduino.I2C.I2CReply"/> object.
+            <para>
+            The party system can be stopped sending I2C_REPLY messages by issuing a <see cref="M:Solid.Arduino.I2C.II2CProtocol.StopI2CReading"/> command.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.ReadI2CContinuous(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Requests the party system to repeatedly send bytes read from the given memory address and register.
+            </summary>
+            <param name="slaveAddress">The slave's memory address</param>
+            <param name="slaveRegister">The slave's register</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.StopI2CReading">
+            <summary>
+            Commands the party system to stop sending I2C_REPLY messages.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReply(System.Int32,System.Int32)">
+            <summary>
+            Gets byte data from the party system, read from the given memory address.
+            </summary>
+            <param name="slaveAddress">The slave's memory address</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+            <returns>An <see cref="T:Solid.Arduino.I2C.I2CReply"/> object holding the data read</returns>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReplyAsync(System.Int32,System.Int32)">
+            <summary>
+            Asynchronously gets byte data from the party system, read from the given memory address.
+            </summary>
+            <param name="slaveAddress">The slave's memory address</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task`1"/> holding the data read</returns>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReply(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets byte data from the party system, read from the given memory address and register.
+            </summary>
+            <param name="slaveAddress">The slave's memory address and register</param>
+            <param name="slaveRegister">The slave's register</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+            <returns>An <see cref="T:Solid.Arduino.I2C.I2CReply"/> object holding the data read</returns>
+        </member>
+        <member name="M:Solid.Arduino.I2C.II2CProtocol.GetI2CReplyAsync(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Asynchronously gets byte data from the party system, read from the given memory address and register.
+            </summary>
+            <param name="slaveAddress">The slave's memory address</param>
+            <param name="slaveRegister">The slave's register</param>
+            <param name="bytesToRead">Number of bytes to read</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task`1"/> holding the data read</returns>
+        </member>
+        <member name="T:Solid.Arduino.ISerialConnection">
+            <summary>
+            Defines a serial port connection.
+            </summary>
+            <seealso href="http://arduino.cc/en/Reference/Serial">Serial reference for Arduino</seealso>
+        </member>
+        <member name="E:Solid.Arduino.ISerialConnection.DataReceived">
+            <summary>
+             Represents the method that will handle the data received event of a <see cref="T:Solid.Arduino.ISerialConnection"/> object.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.ISerialConnection.BaudRate">
+            <inheritdoc cref="P:System.IO.Ports.SerialPort.BaudRate"/>
+        </member>
+        <member name="P:Solid.Arduino.ISerialConnection.PortName">
+            <inheritdoc cref="P:System.IO.Ports.SerialPort.PortName"/>
+        </member>
+        <member name="P:Solid.Arduino.ISerialConnection.IsOpen">
+            <summary>
+            Gets a value indicating the open or closed status of the <see cref="T:Solid.Arduino.ISerialConnection"/> object.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.ISerialConnection.NewLine">
+            <summary>
+            Gets or sets the value used to interpret the end of strings received and sent
+            using <see cref="M:Solid.Arduino.IStringProtocol.ReadLine"/> and <see cref="M:Solid.Arduino.IStringProtocol.WriteLine(System.String)"/> methods.
+            </summary>
+            <remarks>
+            The default is a line feed, (<see cref="P:System.Environment.NewLine"/>).
+            </remarks>
+        </member>
+        <member name="P:Solid.Arduino.ISerialConnection.BytesToRead">
+            <summary>
+            Gets the number of bytes of data in the receive buffer.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.ISerialConnection.Open">
+            <summary>
+            Opens the connection.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.ISerialConnection.Close">
+            <summary>
+            Closes the connection.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.ISerialConnection.ReadByte">
+            <summary>
+            Reads a byte from the underlying serial input data stream.
+            </summary>
+            <returns>A byte value</returns>
+        </member>
+        <member name="M:Solid.Arduino.ISerialConnection.Write(System.String)">
+            <summary>
+            Writes a string to the serial output data stream.
+            </summary>
+            <param name="text">A string to be written</param>
+        </member>
+        <member name="M:Solid.Arduino.ISerialConnection.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a specified number of bytes to the serial output stream using data from a byte array.
+            </summary>
+            <param name="buffer">The byte array that contains the data to write</param>
+            <param name="offset">The zero-based byte offset in the array at which to begin copying bytes</param>
+            <param name="count">The number of bytes to write</param>
+        </member>
+        <member name="M:Solid.Arduino.ISerialConnection.WriteLine(System.String)">
+            <summary>
+            Writes the specified string and the <see cref="P:System.IO.Ports.SerialPort.NewLine"/> value to the serial output stream.
+            </summary>
+            <param name="text">The string to write</param>
+        </member>
+        <member name="T:Solid.Arduino.StringReceivedHandler">
+            <summary>
+            Signature of event handlers capable of processing received strings.
+            </summary>
+            <param name="sender">The object raising the event</param>
+            <param name="eventArgs">Event arguments holding a <see cref="T:System.String"/> message</param>
+        </member>
+        <member name="T:Solid.Arduino.IStringProtocol">
+            <summary>
+            Defines members for sending and receiving ASCII string messages.
+            </summary>
+        </member>
+        <member name="E:Solid.Arduino.IStringProtocol.StringReceived">
+            <summary>
+            Event, raised for every ASCII stringmessage not handled by an <see cref="T:Solid.Arduino.IStringProtocol"/>'s
+            Read, ReadAsync, ReadLine, ReadLineAsync, ReadTo or ReadToAsync method
+            </summary>
+            <remarks>
+            Any spontaneous received string message, terminated with a newline or eof character raises this event.
+            </remarks>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.CreateReceivedStringMonitor">
+            <summary>
+            Creates an observable object tracking received ASCII <see cref="T:System.String"/> messages.
+            </summary>
+            <returns>An <see cref="T:System.IObservable`1"/> interface</returns>
+        </member>
+        <member name="P:Solid.Arduino.IStringProtocol.NewLine">
+            <summary>
+            Gets or sets the value used to interpret the end of strings received and sent.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.Write(System.String)">
+            <summary>
+            Writes a string to the serial output data stream.
+            </summary>
+            <param name="value">A string to be written</param>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.WriteLine(System.String)">
+            <summary>
+            Writes the specified string and the <see cref="P:System.IO.Ports.SerialPort.NewLine"/> value to the serial output stream.
+            </summary>
+            <param name="value">The string to write</param>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.ReadLine">
+            <summary>
+            Reads a string up to the next <see cref="P:Solid.Arduino.IStringProtocol.NewLine"/> character.
+            </summary>
+            <returns>The string read</returns>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.ReadLineAsync">
+            <summary>
+            Reads a string asynchronous up to the next <see cref="P:Solid.Arduino.IStringProtocol.NewLine"/> character.
+            </summary>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task`1"/> returning the string read</returns>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.Read(System.Int32)">
+            <summary>
+            Reads a specified number of characters.
+            </summary>
+            <param name="length">The number of characters to be read (default is 1)</param>
+            <returns>The string read</returns>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.ReadAsync(System.Int32)">
+            <summary>
+            Reads a specified number of characters asynchronous.
+            </summary>
+            <param name="length">The number of characters to be read (default is 1)</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task`1"/> returning the string read</returns>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.ReadTo(System.Char)">
+            <summary>
+            Reads a string up to the first terminating character.
+            </summary>
+            <param name="terminator">The character identifying the end of the string</param>
+            <returns>The string read</returns>
+        </member>
+        <member name="M:Solid.Arduino.IStringProtocol.ReadToAsync(System.Char)">
+            <summary>
+            Reads a string asynchronous up to the first terminating character.
+            </summary>
+            <param name="terminator">The character identifying the end of the string</param>
+            <returns>An awaitable <see cref="T:System.Threading.Tasks.Task`1"/> returning the string read</returns>
+        </member>
+        <member name="T:Solid.Arduino.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_CannotConvertBcd">
+            <summary>
+              Looks up a localized string similar to Cannot convert non-BCD data..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_ChannelRange0_15">
+            <summary>
+              Looks up a localized string similar to Channel number must be between 0 and 15..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_DigitStringOnly">
+            <summary>
+              Looks up a localized string similar to String must contain digits only..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_I2cAddressRange">
+            <summary>
+              Looks up a localized string similar to Address must be between 0 and 1,023..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_I2cInterval">
+            <summary>
+              Looks up a localized string similar to Interval must be between 0 and 16,383 milliseconds..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_MaxPulseWidth">
+            <summary>
+              Looks up a localized string similar to Maximum pulse width must be between 0 and 16,383 milliseconds..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_MinMaxPulse">
+            <summary>
+              Looks up a localized string similar to Minimum pulse width is greater than maximum pulse width..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_MinPulseWidth">
+            <summary>
+              Looks up a localized string similar to Minimum pulse width must be between 0 and 16,383 milliseconds..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_NoNegativeValue">
+            <summary>
+              Looks up a localized string similar to Value cannot be negative..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_NotNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to String argument can not be null or empty..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_PinRange0_127">
+            <summary>
+              Looks up a localized string similar to Pin number must be between 0 and 127..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_PinRange0_7">
+            <summary>
+              Looks up a localized string similar to Pin must be between 0 and 7..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_PortRange0_15">
+            <summary>
+              Looks up a localized string similar to Port number must be between 0 and 15..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_PositiveValue">
+            <summary>
+              Looks up a localized string similar to Value must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_SamplingInterval">
+            <summary>
+              Looks up a localized string similar to Sampling interval must be between 0 and 16,383 milliseconds..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_ValueRange0_16383">
+            <summary>
+              Looks up a localized string similar to Value must be between 0 and 16,383..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.ArgumentEx_ValueRange0_255">
+            <summary>
+              Looks up a localized string similar to Value must be betwen 0 and 255..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.InvalidOpEx_PinNotSupported">
+            <summary>
+              Looks up a localized string similar to Pin is not supported..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.NotImplementedEx_Command">
+            <summary>
+              Looks up a localized string similar to Commandbyte {0:X} is not implemented..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.OverflowEx_CmdBufferFull">
+            <summary>
+              Looks up a localized string similar to The command parsing buffer is full..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.OverflowEx_MsgBufferFull">
+            <summary>
+              Looks up a localized string similar to Received message queue is full..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.OverflowEx_StringBufferFull">
+            <summary>
+              Looks up a localized string similar to The received strings buffer is full..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.TimeoutEx_WaitMessage">
+            <summary>
+              Looks up a localized string similar to Wait condition for {0} message timed out..
+            </summary>
+        </member>
+        <member name="P:Solid.Arduino.Messages.TimeoutEx_WaitStringRequest">
+            <summary>
+              Looks up a localized string similar to Wait condition for string read in {0} mode timed out..
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.SerialBaudRate">
+            <summary>
+            Enumeration of common baud rates, supported by Arduino boards
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.EnhancedSerialConnection">
+            <summary>
+            Represents a serial port connection, supporting Mono.
+            </summary>
+            <seealso href="http://www.mono-project.com/">The official Mono project site</seealso>
+            <inheritdoc />
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialConnection.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Solid.Arduino.EnhancedSerialConnection"/> class using the highest serial port available at 115,200 bits per second.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialConnection.#ctor(System.String,Solid.Arduino.SerialBaudRate)">
+            <summary>
+            Initializes a new instance of <see cref="T:Solid.Arduino.EnhancedSerialConnection"/> class on the given serial port and at the given baud rate.
+            </summary>
+            <param name="portName">The port name (e.g. 'COM3')</param>
+            <param name="baudRate">The baud rate</param>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialConnection.Find">
+            <inheritdoc cref="M:Solid.Arduino.SerialConnection.Find"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialConnection.Find(System.String,System.String)">
+            <inheritdoc cref="M:Solid.Arduino.SerialConnection.Find(System.String,System.String)"/>
+        </member>
+        <member name="M:Solid.Arduino.EnhancedSerialConnection.Close">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.Close"/>
+        </member>
+        <member name="T:Solid.Arduino.SerialConnection">
+            <summary>
+            Represents a serial port connection.
+            </summary>
+            <inheritdoc cref="T:Solid.Arduino.ISerialConnection" />
+        </member>
+        <member name="M:Solid.Arduino.SerialConnection.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Solid.Arduino.SerialConnection"/> class using the highest COM-port available at 115,200 bits per second.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.SerialConnection.#ctor(System.String,Solid.Arduino.SerialBaudRate)">
+            <summary>
+            Initializes a new instance of <see cref="T:Solid.Arduino.SerialConnection"/> class on the given serial port and at the given baud rate.
+            </summary>
+            <param name="portName">The port name (e.g. 'COM3')</param>
+            <param name="baudRate">The baud rate</param>
+        </member>
+        <member name="M:Solid.Arduino.SerialConnection.Open">
+            <inheritdoc cref="T:System.IO.Ports.SerialPort" />
+        </member>
+        <member name="M:Solid.Arduino.SerialConnection.Close">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.Close"/>
+        </member>
+        <member name="M:Solid.Arduino.SerialConnection.Dispose">
+            <inheritdoc cref="M:System.IO.Ports.SerialPort.Dispose(System.Boolean)"/>
+        </member>
+        <member name="M:Solid.Arduino.SerialConnection.Find">
+            <inheritdoc cref="M:Solid.Arduino.ISerialConnection.Write(System.String)" />
+            <inheritdoc cref="M:Solid.Arduino.ISerialConnection.Write(System.Byte[],System.Int32,System.Int32)" />
+            <summary>
+            Finds a serial connection to a device supporting the Firmata protocol.
+            </summary>
+            <returns>A <see cref="T:Solid.Arduino.ISerialConnection"/> instance or <c>null</c> if no connection is found</returns>
+            <remarks>
+            <para>
+            This method searches all available serial ports until it finds a working serial connection.
+            For every available serial port an attempt is made to open a connection at a range of common baudrates.
+            The connection is tested by issueing an <see cref="M:Solid.Arduino.Firmata.IFirmataProtocol.GetFirmware"/> command.
+            (I.e. a Firmata SysEx Firmware query (0xF0 0x79 0xF7).)
+            </para>
+            <para>
+            The connected device is expected to respond by sending the version number of the supported protocol.
+            When a major version of 2 or higher is received, the connection is regarded to be valid.
+            </para>
+            </remarks>
+            <seealso cref="T:Solid.Arduino.Firmata.IFirmataProtocol"/>
+            <seealso href="http://www.firmata.org/wiki/Protocol#Query_Firmware_Name_and_Version">Query Firmware Name and Version</seealso>
+        </member>
+        <member name="M:Solid.Arduino.SerialConnection.Find(System.String,System.String)">
+             <summary>
+             Finds a serial connection to a device supporting plain serial communications.
+             </summary>
+             <param name="query">The query text used to inquire the connection</param>
+             <param name="expectedReply">The reply text the connected device is expected to respond with</param>
+             <returns>A <see cref="T:Solid.Arduino.ISerialConnection"/> instance or <c>null</c> if no connection is found</returns>
+             <remarks>
+             <para>
+             This method searches all available serial ports until it finds a working serial connection.
+             For every available serial port an attempt is made to open a connection at a range of common baudrates.
+             The connection is tested by sending the query string passed to this method.
+             </para>
+             <para>
+             The connected device is expected to respond by sending the reply string passed to this method.
+             When the string received is equal to the expected reply string, the connection is regarded to be valid.
+             </para>
+             </remarks>
+             <example>
+             The Arduino sketch below can be used to demonstrate this method.
+             Upload the sketch to your Arduino device.
+             <code lang="Arduino Sketch">
+             char query[] = "Hello?";
+             char reply[] = "Arduino!";
+            
+             void setup()
+             {
+               Serial.begin(9600);
+               while (!Serial) {}
+             }
+            
+             void loop()
+             {
+               if (Serial.find(query))
+               {
+                 Serial.println(reply);
+               }
+               else
+               {
+                 Serial.println("Listening...");
+                 Serial.flush();
+               }
+            
+               delay(25);
+             }
+             </code>
+             </example>
+             <seealso cref="T:Solid.Arduino.IStringProtocol"/>
+        </member>
+        <member name="T:Solid.Arduino.SerialPortFixer">
+            <summary>
+            SerialPort IOException Workaround
+            </summary>
+            <seealso href="http://zachsaw.blogspot.nl/2010/07/serialport-ioexception-workaround-in-c.html"/>
+        </member>
+        <member name="T:Solid.Arduino.StringEventArgs">
+            <summary>
+            Event arguments passed to a <see cref="T:Solid.Arduino.StringReceivedHandler"/> type event.
+            </summary>
+            <see cref="T:Solid.Arduino.StringReceivedHandler"/>
+            <see cref="E:Solid.Arduino.ArduinoSession.StringReceived"/>
+        </member>
+        <member name="P:Solid.Arduino.StringEventArgs.Text">
+            <summary>
+            Gets the string value being received.
+            </summary>
+        </member>
+        <member name="T:Solid.Arduino.StringExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:System.String"/> objects.
+            </summary>
+        </member>
+        <member name="M:Solid.Arduino.StringExtensions.ToBinaryCodedDecimal(System.String,System.Boolean)">
+            <summary>
+            Converts the argument string into its binary-coded decimal (BCD) representation, e.g.
+             "1234" -> { 0x12, 0x34 } (for Big Endian byte order)
+             "1234" -> { 0x43, 0x21 } (for Little Endian byte order)
+            </summary>
+            <param name="isLittleEndian">True if the byte order is "little end first (leftmost)".</param>
+            <param name="o">String representation of BCD bytes.</param>
+            <returns>Byte array representation of the string as BCD.</returns>
+            <exception cref="T:System.ArgumentException">Thrown if the argument string isn't entirely made up of BCD pairs.</exception>
+        </member>
+        <member name="M:Solid.Arduino.StringExtensions.To14BitIso(System.String)">
+            <summary>
+            Converts a <see cref="T:System.String"/> to a 14 bit bigendian <see cref="T:System.Byte"/> array.
+            </summary>
+            <param name="o">The string being converted</param>
+            <returns>A <see cref="T:System.Byte"/> array.</returns>
+            <remarks>
+            Every character in the string is converted into two 7-bit bytes, starting with the most significant byte.
+            </remarks>
+        </member>
+    </members>
+</doc>
